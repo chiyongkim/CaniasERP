@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canias ERP 소개 - 1Page Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f1f5f9; }
+        .module-card { transition: transform 0.3s ease; }
+        .module-card:hover { transform: translateY(-5px); }
+        .ias-blue { color: #0056b3; }
+        .bg-ias-gradient { background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%); }
+        
+        /* Canias Standard Module Colors */
+        .m-sal { background-color: #E31E24; color: white; } /* Red */
+        .m-pur { background-color: #008D4C; color: white; } /* Green */
+        .m-prd { background-color: #00A65A; color: white; } /* Light Green */
+        .m-inv { background-color: #F39C12; color: white; } /* Orange */
+        .m-fin { background-color: #0073B7; color: white; } /* Blue */
+        .m-cos { background-color: #8E44AD; color: white; } /* Purple/Maroon */
+        .m-hcm { background-color: #D81B60; color: white; } /* Magenta */
+        .m-ast { background-color: #39CCCC; color: white; } /* Teal */
+        .m-bas { background-color: #605CA8; color: white; } /* Indigo */
+        .m-dev { background-color: #3C8DBC; color: white; } /* Light Blue */
+        .m-prj { background-color: #00C0EF; color: white; } /* Aqua */
+        .m-bpm { background-color: #F012BE; color: white; } /* Fuchsia */
+        .m-bom { background-color: #556B2F; color: white; } /* Olive */
+        
+        @media print {
+            .no-print { display: none; }
+            body { background-color: white; padding: 0; }
+            .max-w-6xl { max-width: 100%; border: none; box-shadow: none; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden border border-slate-200">
+        <!-- Header Section -->
+        <header class="bg-ias-gradient text-white p-10 text-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10">
+                <i class="fas fa-cubes text-9xl"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+                Canias ERP 솔루션
+            </h1>
+            <p class="text-xl text-blue-100 font-light max-w-2xl mx-auto">글로벌 엔지니어링 기술력으로 완성하는 비즈니스 프로세스 자동화의 정석</p>
+        </header>
+
+        <div class="p-8 md:p-12">
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <!-- 핵심 1: Global Identity -->
+                <section class="module-card">
+                    <div class="flex items-center mb-6">
+                        <span class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mr-4 shadow-lg">1</span>
+                        <h2 class="text-2xl font-bold text-slate-800">Global Identity & Trust</h2>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <p class="text-slate-600 mb-6 leading-relaxed">1989년 독일 본사 설립 이후, 전 세계 제조 현장의 표준을 선도해온 독보적인 역사와 신뢰성을 보유하고 있습니다.</p>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="text-center">
+                                <p class="text-2xl font-bold ias-blue">31+</p>
+                                <p class="text-xs text-slate-500">Service Countries</p>
+                            </div>
+                            <div class="text-center border-x border-slate-200">
+                                <p class="text-2xl font-bold ias-blue">1,000+</p>
+                                <p class="text-xs text-slate-500">Global Clients</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold ias-blue">27</p>
+                                <p class="text-xs text-slate-500">Languages</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 핵심 2: Technological Advantage -->
+                <section class="module-card">
+                    <div class="flex items-center mb-6">
+                        <span class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center mr-4 shadow-lg">2</span>
+                        <h2 class="text-2xl font-bold text-slate-800">Technological Advantage</h2>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-code w-6 text-emerald-600"></i>
+                            <p class="text-sm text-slate-700 ml-2"><strong>TROIA Platform:</strong> 오픈 소스 기반의 무한 확장 개발 환경</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-database w-6 text-emerald-600"></i>
+                            <p class="text-sm text-slate-700 ml-2"><strong>iasDB:</strong> 대용량 트랜잭션에 최적화된 고성능 DBMS</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-layer-group w-6 text-emerald-600"></i>
+                            <p class="text-sm text-slate-700 ml-2"><strong>3-Tier Architecture:</strong> 클라이언트-서버-DB의 완벽한 분리</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-server w-6 text-emerald-600"></i>
+                            <p class="text-sm text-slate-700 ml-2"><strong>Platform Free:</strong> OS 및 DB에 종속되지 않는 독립적 인프라</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 핵심 3: Innovation for Future -->
+                <section class="module-card">
+                    <div class="flex items-center mb-6">
+                        <span class="w-10 h-10 bg-amber-500 text-white rounded-full flex items-center justify-center mr-4 shadow-lg">3</span>
+                        <h2 class="text-2xl font-bold text-slate-800">Innovation (무인 공장 & IoT)</h2>
+                    </div>
+                    <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="font-bold text-amber-900">ERP-based IoT (AUT/PRI)</h3>
+                                <p class="text-xs text-amber-800 mt-1">미들웨어 없는 실시간 센서 데이터 통합</p>
+                            </div>
+                            <i class="fas fa-robot text-3xl text-amber-300"></i>
+                        </div>
+                        <ul class="grid grid-cols-2 gap-2 text-xs text-amber-900">
+                            <li><i class="fas fa-check mr-1"></i> RFID/QR 실시간 연동</li>
+                            <li><i class="fas fa-check mr-1"></i> PLC 직접 데이터 수집</li>
+                            <li><i class="fas fa-check mr-1"></i> OEE 자동 분석</li>
+                            <li><i class="fas fa-check mr-1"></i> 생산 현장 무인화 대응</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 핵심 4: Practical Integration -->
+                <section class="module-card">
+                    <div class="flex items-center mb-6">
+                        <span class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center mr-4 shadow-lg">4</span>
+                        <h2 class="text-2xl font-bold text-slate-800">Practical Integration</h2>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-inner">
+                        <p class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider">Full Module Integration Matrix (Standard Colors)</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <!-- Foundation -->
+                            <span class="m-bas px-2 py-1 rounded text-[10px] font-bold shadow-sm">BAS</span>
+                            <span class="m-dev px-2 py-1 rounded text-[10px] font-bold shadow-sm">DEV</span>
+                            <span class="m-bpm px-2 py-1 rounded text-[10px] font-bold shadow-sm">BPM</span>
+                            <!-- SCM/Sales -->
+                            <span class="m-sal px-2 py-1 rounded text-[10px] font-bold shadow-sm">SAL</span>
+                            <span class="m-pur px-2 py-1 rounded text-[10px] font-bold shadow-sm">PUR</span>
+                            <span class="m-inv px-2 py-1 rounded text-[10px] font-bold shadow-sm">INV</span>
+                            <!-- Production -->
+                            <span class="m-bom px-2 py-1 rounded text-[10px] font-bold shadow-sm">BOM</span>
+                            <span class="m-prd px-2 py-1 rounded text-[10px] font-bold shadow-sm">PRD</span>
+                            <!-- Management -->
+                            <span class="m-fin px-2 py-1 rounded text-[10px] font-bold shadow-sm">FIN</span>
+                            <span class="m-cos px-2 py-1 rounded text-[10px] font-bold shadow-sm">COS</span>
+                            <span class="m-hcm px-2 py-1 rounded text-[10px] font-bold shadow-sm">HCM</span>
+                            <span class="m-ast px-2 py-1 rounded text-[10px] font-bold shadow-sm">AST</span>
+                            <span class="m-prj px-2 py-1 rounded text-[10px] font-bold shadow-sm">PRJ</span>
+                        </div>
+                        <div class="border-t border-slate-100 pt-4">
+                            <p class="text-xs font-bold text-slate-800 mb-2">Major Project References:</p>
+                            <div class="space-y-2 text-xs text-slate-600">
+                                <div class="flex justify-between items-center">
+                                    <span><i class="fas fa-car mr-2 text-slate-400"></i>광주글로벌모터스 (GGM)</span>
+                                    <span class="text-emerald-600 font-bold">SUCCESS</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span><i class="fas fa-truck-moving mr-2 text-slate-400"></i>현대/기아차 CKD 통합 프로젝트</span>
+                                    <span class="text-emerald-600 font-bold">SUCCESS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Bottom Banner -->
+        <div class="bg-slate-800 p-6 text-center text-white">
+            <div class="flex justify-center items-center space-x-4 mb-2">
+                <span class="text-xl font-bold">IAS Korea</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-xl font-bold">canias<sup>ERP</sup></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
