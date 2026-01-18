@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canias ERP BAS Module</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
+        @media print {
+            @page { size: A4 landscape; margin: 0; }
+            body { -webkit-print-color-adjust: exact; }
+            .no-print { display: none; }
+        }
+        .gradient-header { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); }
+        .card { background: white; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+        .table-header { background-color: #f1f5f9; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; color: #475569; }
+        .status-pill { padding: 0.125rem 0.375rem; border-radius: 9999px; font-size: 0.65rem; font-weight: 600; }
+        .status-critical { background-color: #fee2e2; color: #991b1b; }
+        .status-mandatory { background-color: #fef3c7; color: #92400e; }
+    </style>
+</head>
+<body class="p-4 overflow-x-hidden">
+
+    <!-- Header Section -->
+    <header class="gradient-header text-white p-6 rounded-t-xl shadow-lg mb-4 flex justify-between items-center">
+        <div>
+            <h1 class="text-3xl font-bold tracking-tight">BAS (Basic Data Management)</h1>
+            <p class="text-slate-400 text-sm mt-1 uppercase tracking-widest">Canias ERP Core Infrastructure Architecture</p>
+        </div>
+        <div class="text-right">
+            <div class="text-lg font-semibold">Chiyong Kim</div>
+            <div class="text-xs text-slate-400">Consulting Director</div>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-12 gap-4">
+        
+        <!-- Left Column: Overview & Architecture Philosophy -->
+        <div class="col-span-3 space-y-4">
+            <!-- 1. Executive Summary -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-3 flex items-center gap-2 text-slate-800">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Module Overview 
+                </h2>
+                <div class="bg-blue-50 p-3 rounded-md text-xs leading-relaxed text-blue-900 border-l-4 border-blue-500">
+                    <strong> Global Standard</strong><br>
+                    BAS는 전사 모듈(SAL, PUR, FIN 등)을 제어하는 인프라입니다. Canias의 독보적 경쟁력인 <strong>'체크 테이블 기반 동적 아키텍처'</strong>를 통해 소스 코드 수정 없이 비즈니스 규칙을 즉시 변경하는 고유 가치를 제공합니다.
+                </div>
+            </section>
+
+            <!-- 2. Core Values -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-3 text-slate-800">🎯 핵심 가치 (Core Values)</h2>
+                <ul class="space-y-3">
+                    <li class="flex gap-2">
+                        <span class="text-blue-600 font-bold text-xs">01</span>
+                        <div>
+                            <p class="text-xs font-semibold">중앙 데이터 거버넌스</p>
+                            <p class="text-[10px] text-slate-500">SYST99 기반 마스터 데이터 생성/수정/삭제 권한 중앙 통제</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-blue-600 font-bold text-xs">02</span>
+                        <div>
+                            <p class="text-xs font-semibold">동적 파라미터 구조</p>
+                            <p class="text-[10px] text-slate-500">비즈니스 로직 하드코딩 배제, IASBAS### 체크테이블 구동</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="text-blue-600 font-bold text-xs">03</span>
+                        <div>
+                            <p class="text-xs font-semibold">다차원 조직 지원</p>
+                            <p class="text-[10px] text-slate-500">Single Instance 내 Multi-Company/Plant/Currency 지원</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 3. Architecture Comparison -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-3 text-slate-800">⚖️ Architecture Comparison</h2>
+                <table class="w-full text-[10px]">
+                    <thead>
+                        <tr class="table-header">
+                            <th class="p-1 text-left">항목</th>
+                            <th class="p-1 text-left">Canias ERP</th>
+                            <th class="p-1 text-left">Legacy ERP</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr>
+                            <td class="p-1 font-semibold">확장 방식</td>
+                            <td class="p-1 text-blue-700">체크테이블 동적 확장</td>
+                            <td class="p-1">소스 코드 수정</td>
+                        </tr>
+                        <tr>
+                            <td class="p-1 font-semibold">배포 속도</td>
+                            <td class="p-1 text-blue-700">즉시 반영 (Hot-Reload)</td>
+                            <td class="p-1">컴파일 및 배포</td>
+                        </tr>
+                        <tr>
+                            <td class="p-1 font-semibold">BP 관리</td>
+                            <td class="p-1 text-blue-700">고객/공급업체 통합</td>
+                            <td class="p-1">모듈별 분리 관리</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <!-- Center Column: Functional Hierarchy & Data Flow -->
+        <div class="col-span-6 space-y-4">
+            <!-- 4. Functional Hierarchy (Visual) -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-4 text-slate-800">🏗️ 기능적 계층 구조 (Functional Hierarchy)</h2>
+                <div class="flex items-center justify-between gap-2">
+                    <!-- Layer 1 -->
+                    <div class="flex-1 bg-blue-50 border border-blue-200 p-3 rounded-lg text-center">
+                        <div class="text-[10px] font-bold text-blue-800 uppercase mb-2">L1. Configuration Layer</div>
+                        <div class="space-y-1">
+                            <div class="bg-white text-[9px] p-1 rounded border border-blue-100">SYST99 (통합 관리)</div>
+                            <div class="bg-white text-[9px] p-1 rounded border border-blue-100">IASBAS001 (회사)</div>
+                            <div class="bg-white text-[9px] p-1 rounded border border-blue-100">IASBAS005 (플랜트)</div>
+                        </div>
+                    </div>
+                    <div class="text-blue-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                    <!-- Layer 2 -->
+                    <div class="flex-1 bg-green-50 border border-green-200 p-3 rounded-lg text-center">
+                        <div class="text-[10px] font-bold text-green-800 uppercase mb-2">L2. Operation Layer</div>
+                        <div class="space-y-1">
+                            <div class="bg-white text-[9px] p-1 rounded border border-green-100">BAST03 (자재 마스터)</div>
+                            <div class="bg-white text-[9px] p-1 rounded border border-green-100">BAST02 (BP 통합)</div>
+                            <div class="bg-white text-[9px] p-1 rounded border border-green-100">BAST08 (작업장)</div>
+                        </div>
+                    </div>
+                    <div class="text-green-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                    <!-- Layer 3 -->
+                    <div class="flex-1 bg-rose-50 border border-rose-200 p-3 rounded-lg text-center">
+                        <div class="text-[10px] font-bold text-rose-800 uppercase mb-2">L3. Control Layer</div>
+                        <div class="space-y-1">
+                            <div class="bg-white text-[9px] p-1 rounded border border-rose-100">SYST25 (변경 이력 로그)</div>
+                            <div class="bg-white text-[9px] p-1 rounded border border-rose-100">BAST30 (환율 업데이트)</div>
+                            <div class="bg-white text-[9px] p-1 rounded border border-rose-100">BAST90 (GDPR 관리)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. End-to-End Process Flow -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-4 text-slate-800">📊 전사 프로세스 통합 흐름 (End-to-End)</h2>
+                <div class="grid grid-cols-4 gap-2 text-center">
+                    <div class="p-2 border rounded border-slate-200 bg-slate-50">
+                        <div class="text-[9px] font-bold text-slate-500">PHASE 1</div>
+                        <div class="text-[10px] font-semibold">시스템 초기화</div>
+                        <div class="text-[8px] text-slate-400 mt-1">회사/플랜트/단위/환율<br>(ADM/SYS)</div>
+                    </div>
+                    <div class="p-2 border rounded border-slate-200 bg-slate-50">
+                        <div class="text-[9px] font-bold text-slate-500">PHASE 2</div>
+                        <div class="text-[10px] font-semibold">마스터 데이터 생성</div>
+                        <div class="text-[8px] text-slate-400 mt-1">자재/BP/리소스<br>(BAS/BAST)</div>
+                    </div>
+                    <div class="p-2 border rounded border-slate-200 bg-slate-50">
+                        <div class="text-[9px] font-bold text-slate-500">PHASE 3</div>
+                        <div class="text-[10px] font-semibold">트랜잭션 참조</div>
+                        <div class="text-[8px] text-slate-400 mt-1">SAL, PUR, PRD 런타임<br>(Runtime Validation)</div>
+                    </div>
+                    <div class="p-2 border rounded border-slate-200 bg-slate-50">
+                        <div class="text-[9px] font-bold text-slate-500">PHASE 4</div>
+                        <div class="text-[10px] font-semibold">감사 및 통제</div>
+                        <div class="text-[8px] text-slate-400 mt-1">이력 추적/보안/GDPR<br>(Audit & Control)</div>
+                    </div>
+                </div>
+                <div class="mt-4 bg-slate-100 p-3 rounded text-[10px] grid grid-cols-2 gap-4">
+                    <div class="border-r border-slate-300 pr-4">
+                        <p class="font-bold text-indigo-700 mb-1">🔽 Upstream (입력)</p>
+                        <p class="text-slate-600">SYST04(채번) → BAST03(자재)<br>EDIT01(EDI) → 마스터 자동 생성</p>
+                    </div>
+                    <div class="pl-4">
+                        <p class="font-bold text-emerald-700 mb-1">🔼 Downstream (공급)</p>
+                        <p class="text-slate-600">BAST03(자재) → PURT05(구매) / MRP<br>BAST02(BP) → SALT01(영업) / FIN</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Integration Specification Table (Compact) -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-3 text-slate-800">🔗 모듈 간 인터페이스 (Integration Map)</h2>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <p class="text-[10px] font-bold">SAL (영업)</p>
+                        <p class="text-[9px] text-slate-500 italic">지급조건, 고객주소, 통화, 신용한도 자동 상속</p>
+                    </div>
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <p class="text-[10px] font-bold">PUR (구매)</p>
+                        <p class="text-[9px] text-slate-500 italic">구매단위, 리드타임, 최소발주량, MRP 연동</p>
+                    </div>
+                    <div class="p-2 bg-slate-50 rounded border">
+                        <p class="text-[10px] font-bold">FIN (재무)</p>
+                        <p class="text-[9px] text-slate-500 italic">평가 클래스 기반 G/L 자동 매핑, VAT 자동 계산</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Key Tables & Risks -->
+        <div class="col-span-3 space-y-4">
+            <!-- 7. Core Check Tables -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-3 text-slate-800">🗝️ 핵심 체크테이블 (Core Tables)</h2>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-[10px]">
+                        <span class="font-mono font-bold">IASBAS001</span>
+                        <span class="text-slate-500">회사 정의</span>
+                        <span class="status-pill status-critical">치명</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px]">
+                        <span class="font-mono font-bold">IASBAS004</span>
+                        <span class="text-slate-500">단위 정의</span>
+                        <span class="status-pill status-critical">치명</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px]">
+                        <span class="font-mono font-bold">IASBAS005</span>
+                        <span class="text-slate-500">플랜트/거점</span>
+                        <span class="status-pill status-mandatory">필수</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px]">
+                        <span class="font-mono font-bold">IASBAS006</span>
+                        <span class="text-slate-500">자재 유형</span>
+                        <span class="status-pill status-mandatory">필수</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px]">
+                        <span class="font-mono font-bold">IASBAS012</span>
+                        <span class="text-slate-500">일일 환율</span>
+                        <span class="status-pill status-mandatory">필수</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Operational Risks -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-3 text-slate-800">⚠️ 운영 리스크 관리 지침</h2>
+                <div class="space-y-3">
+                    <div class="bg-amber-50 p-2 rounded border border-amber-200">
+                        <p class="text-[10px] font-bold text-amber-800">Lock 관리 (Zombie Session)</p>
+                        <p class="text-[9px] text-amber-700 leading-tight">BAST03 수정 중 비정상 종료 시 레코드 락 발생. SYST01에서 60분 이상 점유 세션 모니터링 필수.</p>
+                    </div>
+                    <div class="bg-red-50 p-2 rounded border border-red-200">
+                        <p class="text-[10px] font-bold text-red-800">변경 이력 추적 (Audit)</p>
+                        <p class="text-[9px] text-red-700 leading-tight">단가, 신용한도 등 민감 필드 수정 시 SYST25 이력 로그 의무화 (7년 보존).</p>
+                    </div>
+                    <div class="bg-slate-50 p-2 rounded border border-slate-200">
+                        <p class="text-[10px] font-bold text-slate-800">GDPR 대응</p>
+                        <p class="text-[9px] text-slate-700 leading-tight">IASBAS095에서 개인정보 식별 및 자동 마스킹 정책 설정 (비식별화 필수).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Glossary Shortcut -->
+            <section class="card p-4">
+                <h2 class="text-sm font-bold border-b pb-2 mb-2 text-slate-800">📖 Glossary</h2>
+                <div class="space-y-1 text-[9px]">
+                    <p><strong class="text-indigo-600">SSOT:</strong> Single Source of Truth</p>
+                    <p><strong class="text-indigo-600">TROIA:</strong> Canias ERP 전용 4GL 개발 언어</p>
+                    <p><strong class="text-indigo-600">Client:</strong> 최상위 데이터 격리 단위 (IASBAS000)</p>
+                    <p><strong class="text-indigo-600">UoM:</strong> Unit of Measure (단위 관리)</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="mt-4 pt-4 border-t flex justify-between items-end">
+        <div class="text-[10px] text-slate-400">
+            &copy; 2026 IAS Korea | All Rights Reserved. Confidential Documents.
+        </div>
+        
+    </footer>
+
+
+
+</body>
+</html>
