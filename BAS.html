@@ -1,0 +1,265 @@
+import React, { useState } from 'react';
+import { 
+  Settings, Database, Network, ShieldCheck, 
+  AlertTriangle, ArrowRight, Layers, Layout, 
+  CheckCircle2, Globe, Cpu, Zap, Activity
+} from 'lucide-react';
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState('architecture');
+
+  const SectionTitle = ({ icon: Icon, title }) => (
+    <div className="flex items-center gap-2 mb-4 border-b border-blue-100 pb-2">
+      <Icon className="w-5 h-5 text-blue-600" />
+      <h2 className="text-lg font-bold text-slate-800">{title}</h2>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-slate-50 p-4 font-sans text-slate-900 overflow-x-hidden">
+      {/* Header & BLUF */}
+      <header className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 mb-4 flex justify-between items-center">
+        <div>
+          <div className="flex items-center gap-3 mb-1">
+            <span className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Strategic Blueprint</span>
+            <h1 className="text-2xl font-black text-slate-900">BAS - Basic Data Management Infrastructure</h1>
+          </div>
+          <p className="text-slate-500 font-medium">전사 프로세스 통합을 위한 Canias ERP의 '디지털 헌법' 및 런타임 엔진</p>
+        </div>
+        <div className="text-right border-l pl-6 border-slate-200">
+          <div className="text-xs text-slate-400 font-bold uppercase mb-1">Executive Summary (BLUF)</div>
+          <div className="flex gap-4">
+            <div className="bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-lg">
+              <span className="text-[10px] block text-emerald-600 font-bold uppercase">Reliability</span>
+              <span className="text-sm font-bold text-emerald-700">VERIFIED</span>
+            </div>
+            <div className="bg-blue-50 border border-blue-100 px-3 py-1 rounded-lg">
+              <span className="text-[10px] block text-blue-600 font-bold uppercase">Core Tech</span>
+              <span className="text-sm font-bold text-blue-700">Check-Table Driven</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-12 gap-4">
+        {/* Left Column: Architecture & Core Values */}
+        <div className="col-span-4 flex flex-col gap-4">
+          {/* 3 Core Values Card */}
+          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+            <SectionTitle icon={Zap} title="3 Core Values (ROI Focus)" />
+            <div className="space-y-4">
+              <div className="flex gap-3">
+                <div className="mt-1 bg-blue-100 p-2 rounded-lg text-blue-600 shrink-0 h-fit">
+                  <ShieldCheck size={20} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm">Centralized Governance</h3>
+                  <p className="text-xs text-slate-500">BAST02/03을 통한 마스터 중앙 통제 및 SSOT 실현. 데이터 사일로 원천 차단.</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="mt-1 bg-purple-100 p-2 rounded-lg text-purple-600 shrink-0 h-fit">
+                  <Cpu size={20} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm">Check-Table Driven Architecture</h3>
+                  <p className="text-xs text-slate-500">소스코드 하드코딩 제로. SYST99 설정 변경만으로 비즈니스 로직 즉시 배포(Hot-Reload).</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="mt-1 bg-orange-100 p-2 rounded-lg text-orange-600 shrink-0 h-fit">
+                  <Globe size={20} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm">Multi-Dimensional Structure</h3>
+                  <p className="text-xs text-slate-500">단일 인스턴스 내 Multi-Company/Plant/Currency 완벽 대응. 글로벌 확장 가속화.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Hierarchy Diagram */}
+          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex-1">
+            <SectionTitle icon={Layers} title="Functional Hierarchy" />
+            <div className="space-y-3 mt-4">
+              <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg relative">
+                <div className="text-[10px] font-bold text-blue-600 uppercase mb-1">L1: Configuration (SYST99)</div>
+                <div className="text-xs font-bold">전사 규칙 및 조직 구조 (IASBAS###)</div>
+                <div className="mt-1 flex gap-1 flex-wrap">
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-blue-200 text-[10px]">Company</span>
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-blue-200 text-[10px]">Plant</span>
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-blue-200 text-[10px]">Currency</span>
+                </div>
+              </div>
+              <div className="flex justify-center"><ArrowRight size={16} className="rotate-90 text-slate-300" /></div>
+              <div className="bg-emerald-50 border border-emerald-200 p-3 rounded-lg">
+                <div className="text-[10px] font-bold text-emerald-600 uppercase mb-1">L2: Operation (BAST##)</div>
+                <div className="text-xs font-bold">마스터 데이터 수명주기 관리</div>
+                <div className="mt-1 flex gap-1 flex-wrap">
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-emerald-200 text-[10px]">Material</span>
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-emerald-200 text-[10px]">Customer</span>
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-emerald-200 text-[10px]">Vendor</span>
+                </div>
+              </div>
+              <div className="flex justify-center"><ArrowRight size={16} className="rotate-90 text-slate-300" /></div>
+              <div className="bg-pink-50 border border-pink-200 p-3 rounded-lg">
+                <div className="text-[10px] font-bold text-pink-600 uppercase mb-1">L3: Control & Utility</div>
+                <div className="text-xs font-bold">무결성 검증 및 대량 처리</div>
+                <div className="mt-1 flex gap-1 flex-wrap">
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-pink-200 text-[10px]">Reorg</span>
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-pink-200 text-[10px]">Audit Log</span>
+                  <span className="bg-white px-1.5 py-0.5 rounded border border-pink-200 text-[10px]">GDPR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Center/Right Column: E2E Flow & Data Integration */}
+        <div className="col-span-8 flex flex-col gap-4">
+          {/* E2E Process Flow */}
+          <div className="bg-slate-900 text-white rounded-xl shadow-lg p-5">
+            <div className="flex justify-between items-center mb-6">
+              <SectionTitle icon={Network} title="End-to-End Data Integration (SSOT Path)" />
+              <div className="text-xs bg-white/10 px-3 py-1 rounded-full text-slate-300">Data Cycle: Setup → Run → Audit</div>
+            </div>
+            <div className="flex justify-between items-start gap-2">
+              <div className="flex-1 text-center">
+                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg shadow-blue-500/50">
+                  <Settings size={24} />
+                </div>
+                <div className="text-sm font-bold">Phase 1: Bootstrap</div>
+                <div className="text-[10px] text-slate-400 mt-1">SYST99 기준 정보 정의<br/>(회사, 플랜트, 단위)</div>
+              </div>
+              <div className="mt-6 text-slate-600"><ArrowRight /></div>
+              <div className="flex-1 text-center">
+                <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg shadow-emerald-500/50">
+                  <Database size={24} />
+                </div>
+                <div className="text-sm font-bold">Phase 2: Master Setup</div>
+                <div className="text-[10px] text-slate-400 mt-1">BAST03/02 생성<br/>(자재, 고객/공급업체)</div>
+              </div>
+              <div className="mt-6 text-slate-600"><ArrowRight /></div>
+              <div className="flex-1 text-center">
+                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg shadow-purple-500/50">
+                  <Zap size={24} />
+                </div>
+                <div className="text-sm font-bold">Phase 3: Runtime Usage</div>
+                <div className="text-[10px] text-slate-400 mt-1">SALT01/PURT05 참조<br/>(유효성 실시간 검증)</div>
+              </div>
+              <div className="mt-6 text-slate-600"><ArrowRight /></div>
+              <div className="flex-1 text-center">
+                <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg shadow-pink-500/50">
+                  <Activity size={24} />
+                </div>
+                <div className="text-sm font-bold">Phase 4: Audit & Optimization</div>
+                <div className="text-[10px] text-slate-400 mt-1">SYST25 변경 이력 관리<br/>및 GDPR 대응</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 flex-1">
+            {/* Critical Check Tables Grid */}
+            <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 overflow-hidden">
+              <SectionTitle icon={Layout} title="Critical Check Tables & Trans." />
+              <div className="text-[10px] text-slate-400 mb-3 uppercase font-bold tracking-tighter">Must-be-configured before Go-Live</div>
+              <div className="grid grid-cols-1 gap-2">
+                {[
+                  { code: 'IASBAS001', name: '회사 정의', level: 'CRITICAL', t: 'SYST99' },
+                  { code: 'IASBAS004', name: '단위 & 변환', level: 'CRITICAL', t: 'SYST99' },
+                  { code: 'IASBAS005', name: '플랜트 위치', level: 'MANDATORY', t: 'SYST99' },
+                  { code: 'IASBAS006', name: '자재 유형', level: 'MANDATORY', t: 'SYST99' },
+                  { code: 'BAST03', name: '자재 마스터', level: 'CORE', t: 'BAST03' },
+                  { code: 'BAST02', name: '통합 BP 마스터', level: 'CORE', t: 'BAST02' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-2 rounded border border-slate-100 bg-slate-50 hover:bg-slate-100 transition-colors">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono text-blue-600 font-bold">{item.code}</span>
+                      <span className="text-xs font-bold text-slate-700">{item.name}</span>
+                    </div>
+                    <div className="text-right">
+                      <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold ${
+                        item.level === 'CRITICAL' ? 'bg-red-100 text-red-600' : 'bg-orange-100 text-orange-600'
+                      }`}>{item.level}</span>
+                      <div className="text-[9px] text-slate-400 mt-0.5 font-mono">{item.t}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Strategic Audit & Risk */}
+            <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+              <SectionTitle icon={ShieldCheck} title="Strategic Audit & Risk" />
+              <div className="space-y-4">
+                <div className="bg-amber-50 border-l-4 border-amber-400 p-3">
+                  <div className="flex items-center gap-2 mb-1">
+                    <AlertTriangle size={14} className="text-amber-600" />
+                    <span className="text-xs font-bold text-amber-800 uppercase">Unknown Unknowns</span>
+                  </div>
+                  <p className="text-[11px] text-amber-900 leading-tight">
+                    대량 데이터 마이그레이션 시 <strong>Table Lock</strong> 및 좀비 세션 리스크. 
+                    `BAST01` 수동 변경 시 `SYST25` 로그 누락 가능성 존재.
+                  </p>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-blue-500 mt-0.5" />
+                    <span className="text-xs text-slate-600"><strong>First Principles:</strong> 복잡한 비즈니스 로직을 IASBAS### 데이터의 조합으로 단순화.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-blue-500 mt-0.5" />
+                    <span className="text-xs text-slate-600"><strong>Inversion:</strong> "마스터 데이터가 오염된다면?" → SYST25 감시 및 BAST09 재구성 프로세스 선제 구축.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-blue-500 mt-0.5" />
+                    <span className="text-xs text-slate-600"><strong>Via Negativa:</strong> 불필요한 Custom 필드 억제, 표준 뷰(View) 활용 극대화.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer: Action Plan */}
+      <footer className="mt-4 grid grid-cols-4 gap-4">
+        <div className="col-span-3 bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="bg-blue-600 text-white p-2 rounded-lg font-bold text-sm">Action Plan</div>
+            <div className="flex gap-4">
+              <div className="flex items-center gap-2">
+                <span className="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded">즉시</span>
+                <span className="text-xs font-bold text-slate-700">BAST01 권한 회수 및 SYST99 관리 체계 전환</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded">단기</span>
+                <span className="text-xs font-bold text-slate-700">전사 자재/고객 코드 표준화(Coding Rule) 확정</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded">중기</span>
+                <span className="text-xs font-bold text-slate-700">BAST30 환율 배치 작업 및 SYST25 감사 자동화</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-slate-400">
+            <Settings size={14} />
+            <span className="text-[10px] font-mono uppercase tracking-widest">Architected by Canias-Cavas</span>
+          </div>
+        </div>
+        <div className="bg-blue-700 text-white rounded-xl shadow-lg p-4 flex flex-col justify-center items-center">
+          <div className="text-[10px] uppercase font-bold opacity-80">Final Verdict</div>
+          <div className="text-lg font-black tracking-tighter uppercase">GO FOR SYST99</div>
+        </div>
+      </footer>
+
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700;900&display=swap');
+        body { font-family: 'Pretendard', sans-serif; }
+      `}</style>
+    </div>
+  );
+};
+
+export default App;
